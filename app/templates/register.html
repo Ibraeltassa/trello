@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registrar</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.username.label }} 
+    {{ form.username(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.email.label }} 
+    {{ form.email(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.password.label }}
+    {{ form.password(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.confirm_password.label }}
+    {{ form.confirm_password(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.submit(class="btn btn-success") }}
+  </div>
+</form>
+<p>Já tem conta? <a href="{{ url_for('auth.login') }}">Faça login</a>.</p>
+{% endblock %}

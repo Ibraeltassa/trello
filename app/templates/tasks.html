@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{% if form.title.data %}Editar{% else %}Nova{% endif %} Tarefa</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.title.label }}
+    {{ form.title(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.description.label }}
+    {{ form.description(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.status.label }}
+    {{ form.status(class="form-select") }}
+  </div>
+  <div class="mb-3">
+    {{ form.submit(class="btn btn-primary") }}
+  </div>
+</form>
+<a href="{{ url_for('dashboard.dashboard_view') }}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

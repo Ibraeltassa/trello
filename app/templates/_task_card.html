@@ -1,0 +1,10 @@
+<div class="card mb-2 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">{{ task.description }}</p>
+      <p><span class="badge bg-info">{{ task.status }}</span></p>
+      <a href="{{ url_for('dashboard.edit_task', id=task.id) }}" class="btn btn-sm btn-warning">Editar</a>
+      <a href="{{ url_for('dashboard.delete_task', id=task.id) }}" class="btn btn-sm btn-danger">Excluir</a>
+    </div>
+  </div>
+  

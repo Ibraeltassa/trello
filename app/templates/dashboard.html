@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Suas Tarefas</h2>
+<a href="{{ url_for('dashboard.new_task') }}" class="btn btn-success mb-3">+ Nova Tarefa</a>
+
+<div class="row">
+  <div class="col-md-4">
+    <h4>Pendentes</h4>
+    {% for task in tasks if task.status == "pendente" %}
+      {% include "_task_card.html" %}
+    {% else %}
+      <p>Nenhuma tarefa pendente</p>
+    {% endfor %}
+  </div>
+  <div class="col-md-4">
+    <h4>Em Andamento</h4>
+    {% for task in tasks if task.status == "em andamento" %}
+      {% include "_task_card.html" %}
+    {% else %}
+      <p>Nenhuma tarefa em andamento</p>
+    {% endfor %}
+  </div>
+  <div class="col-md-4">
+    <h4>Concluídas</h4>
+    {% for task in tasks if task.status == "concluída" %}
+      {% include "_task_card.html" %}
+    {% else %}
+      <p>Nenhuma tarefa concluída</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
